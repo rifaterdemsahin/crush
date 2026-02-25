@@ -1,0 +1,22 @@
+{
+  \"providers\": {
+    \"openai\": {
+      \"api-key\": \"${OPENAI_API_KEY}\",
+      \"models\": [
+        {
+          \"id\": \"gpt-4o-mini\",
+          \"name\": \"GPT-4o Mini\"
+        }
+      ]
+    },
+    \"ollama\": {
+      \"base-url\": \"http://host.docker.internal:11434\",
+      \"models\": [
+        {
+          \"id\": \"llama3.2\",
+          \"name\": \"Llama 3.2\"
+        }
+      ]
+    }
+  }
+}

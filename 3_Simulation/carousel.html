@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel - 3_Simulation</title>
+    <style>
+        body { font-family: sans-serif; background: #000; color: #fff; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+        #carousel { position: relative; max-width: 800px; height: 500px; }
+        img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.3); border: none; color: white; font-size: 2rem; padding: 1rem; cursor: pointer; }
+        #prev { left: 10px; }
+        #next { right: 10px; }
+        .dots { display: flex; gap: 0.5rem; margin-top: 1rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background: #666; cursor: pointer; }
+        .dot.active { background: #007bff; }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Simulation Carousel</h1>
+    <div id="carousel">
+        <img id="carousel-img" src="" alt="Carousel">
+        <button id="prev" class="nav-btn">&lt;</button>
+        <button id="next" class="nav-btn">&gt;</button>
+    </div>
+    <div class="dots" id="dots"></div>
+
+    <script>
+        const images = [  // Add your images here
+            // 'images/screenshot1.png',
+            // 'images/crush-mac.png',
+        ];
+        let current = 0;
+        const imgEl = document.getElementById('carousel-img');
+        const dotsEl = document.getElementById('dots');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        function showImage(index) {
+            if (images[index]) {
+                imgEl.src = images[index];
+            }
+            document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+            current = index;
+        }
+
+        prev.onclick = () => showImage((current - 1 + images.length) % images.length);
+        next.onclick = () => showImage((current + 1) % images.length);
+
+        // Dots
+        images.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.onclick = () => showImage(i);
+            dotsEl.appendChild(dot);
+        });
+
+        if (images.length > 0) {
+            showImage(0);
+        } else {
+            imgEl.alt = 'No images yet. Add to images/ and update array.';
+            dotsEl.innerHTML = '<p>No images. Add screenshots to start!</p>';
+        }
+    </script>
+</body>
+</html>
