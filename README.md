@@ -1,0 +1,2 @@
+# crush
+Crush cli usage
