@@ -33,3 +33,8 @@ Est. len(text)/4 ≈ tokens (rough)
 ```
 
 **Next:** Link in nav? `markdown_renderer.html?file=4_Formula/crush_actions_formula.md`
+
+## GitHub Integration 🚀
+- **Repo:** [github.com/rifaterdemsahin/crush](https://github.com/rifaterdemsahin/crush)
+- **Latest Commit:** [a997012](https://github.com/rifaterdemsahin/crush/commit/a997012)
+- **Live Site:** [rifaterdemsahin.github.io/crush](https://rifaterdemsahin.github.io/crush/)
